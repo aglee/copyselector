@@ -13,6 +13,8 @@
 		73797F40170B3D9200D1CDDF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 73797F3E170B3D9200D1CDDF /* Credits.rtf */; };
 		73797F43170B3D9200D1CDDF /* CSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F42170B3D9200D1CDDF /* CSAppDelegate.m */; };
 		73797F46170B3D9200D1CDDF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73797F44170B3D9200D1CDDF /* MainMenu.xib */; };
+		73797F50170B3DB200D1CDDF /* AKMethodNameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */; };
+		73797F51170B3DB200D1CDDF /* CSServicesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		73797F41170B3D9200D1CDDF /* CSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSAppDelegate.h; sourceTree = "<group>"; };
 		73797F42170B3D9200D1CDDF /* CSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSAppDelegate.m; sourceTree = "<group>"; };
 		73797F45170B3D9200D1CDDF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		73797F4C170B3DB200D1CDDF /* AKMethodNameExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMethodNameExtractor.h; sourceTree = "<group>"; };
+		73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKMethodNameExtractor.m; sourceTree = "<group>"; };
+		73797F4E170B3DB200D1CDDF /* CSServicesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSServicesProvider.h; sourceTree = "<group>"; };
+		73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSServicesProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,10 @@
 		73797F35170B3D9200D1CDDF /* CopySelector */ = {
 			isa = PBXGroup;
 			children = (
+				73797F4C170B3DB200D1CDDF /* AKMethodNameExtractor.h */,
+				73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */,
+				73797F4E170B3DB200D1CDDF /* CSServicesProvider.h */,
+				73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */,
 				73797F41170B3D9200D1CDDF /* CSAppDelegate.h */,
 				73797F42170B3D9200D1CDDF /* CSAppDelegate.m */,
 				73797F44170B3D9200D1CDDF /* MainMenu.xib */,
@@ -169,6 +179,8 @@
 			files = (
 				73797F3C170B3D9200D1CDDF /* main.m in Sources */,
 				73797F43170B3D9200D1CDDF /* CSAppDelegate.m in Sources */,
+				73797F50170B3DB200D1CDDF /* AKMethodNameExtractor.m in Sources */,
+				73797F51170B3DB200D1CDDF /* CSServicesProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

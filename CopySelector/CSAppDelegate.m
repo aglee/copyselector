@@ -7,17 +7,14 @@
 //
 
 #import "CSAppDelegate.h"
+#import "CSServicesProvider.h"
 
 @implementation CSAppDelegate
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    [NSApp setServicesProvider:[[[CSServicesProvider alloc] init] autorelease]];
+    NSUpdateDynamicServices();
 }
 
 @end

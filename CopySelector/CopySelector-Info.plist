@@ -30,5 +30,27 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Copy with Selector Awareness</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>copyWithSelectorAwareness</string>
+			<key>NSPortName</key>
+			<string>CopySelector</string>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+			</array>
+			<key>NSServiceDescription</key>
+			<string>If your selected text contains a method call or declaration, tries to parse the selector and put that in the paste buffer.</string>
+		</dict>
+	</array>
 </dict>
 </plist>
