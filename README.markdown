@@ -31,7 +31,7 @@ Here's another example; CopySelector will extract "beginSheetModalForWindow:comp
                    }
                }];
 
-Note that CopySelector doesn't work if there is an assignment in the selected text. For example, it won't detect the selector if you select this whole line:
+Note that CopySelector doesn't work if the selected text begins with an assignment. For example, it won't detect the selector if you select this whole line:
 
     BOOL didFly = [self flyToX:100 y:200 z:300];
 
