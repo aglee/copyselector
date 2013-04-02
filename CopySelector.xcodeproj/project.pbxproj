@@ -15,6 +15,7 @@
 		73797F46170B3D9200D1CDDF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73797F44170B3D9200D1CDDF /* MainMenu.xib */; };
 		73797F50170B3DB200D1CDDF /* AKMethodNameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */; };
 		73797F51170B3DB200D1CDDF /* CSServicesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */; };
+		73797F53170B412900D1CDDF /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 73797F52170B412900D1CDDF /* README.markdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKMethodNameExtractor.m; sourceTree = "<group>"; };
 		73797F4E170B3DB200D1CDDF /* CSServicesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSServicesProvider.h; sourceTree = "<group>"; };
 		73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSServicesProvider.m; sourceTree = "<group>"; };
+		73797F52170B412900D1CDDF /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		73797F20170B3D9200D1CDDF = {
 			isa = PBXGroup;
 			children = (
+				73797F52170B412900D1CDDF /* README.markdown */,
 				73797F35170B3D9200D1CDDF /* CopySelector */,
 				73797F2E170B3D9200D1CDDF /* Frameworks */,
 				73797F2C170B3D9200D1CDDF /* Products */,
@@ -167,6 +170,7 @@
 				73797F3A170B3D9200D1CDDF /* InfoPlist.strings in Resources */,
 				73797F40170B3D9200D1CDDF /* Credits.rtf in Resources */,
 				73797F46170B3D9200D1CDDF /* MainMenu.xib in Resources */,
+				73797F53170B412900D1CDDF /* README.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
