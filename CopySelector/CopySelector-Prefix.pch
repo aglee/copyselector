@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CopySelector' target in the 'CopySelector' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
