@@ -6,9 +6,19 @@
 //  Copyright (c) 2013 Andy Lee. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
+#import "CSServicesProvider.h"
 
 int main(int argc, char *argv[])
 {
-    return NSApplicationMain(argc, (const char **)argv);
+	@autoreleasepool
+    {
+        CSServicesProvider *service = [[[CSServicesProvider alloc] init] autorelease];
+
+        NSRegisterServicesProvider(service, @"CopySelector");
+
+        [[NSRunLoop currentRunLoop] run];
+	}
+
+	return 0;
 }

@@ -10,16 +10,13 @@
 		73797F30170B3D9200D1CDDF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73797F2F170B3D9200D1CDDF /* Cocoa.framework */; };
 		73797F3A170B3D9200D1CDDF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73797F38170B3D9200D1CDDF /* InfoPlist.strings */; };
 		73797F3C170B3D9200D1CDDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F3B170B3D9200D1CDDF /* main.m */; };
-		73797F40170B3D9200D1CDDF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 73797F3E170B3D9200D1CDDF /* Credits.rtf */; };
-		73797F43170B3D9200D1CDDF /* CSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F42170B3D9200D1CDDF /* CSAppDelegate.m */; };
-		73797F46170B3D9200D1CDDF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73797F44170B3D9200D1CDDF /* MainMenu.xib */; };
 		73797F50170B3DB200D1CDDF /* AKMethodNameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */; };
 		73797F51170B3DB200D1CDDF /* CSServicesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */; };
 		73797F53170B412900D1CDDF /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 73797F52170B412900D1CDDF /* README.markdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		73797F2B170B3D9200D1CDDF /* CopySelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopySelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73797F2B170B3D9200D1CDDF /* CopySelector.service */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopySelector.service; sourceTree = BUILT_PRODUCTS_DIR; };
 		73797F2F170B3D9200D1CDDF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		73797F32170B3D9200D1CDDF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		73797F33170B3D9200D1CDDF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -28,10 +25,6 @@
 		73797F39170B3D9200D1CDDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		73797F3B170B3D9200D1CDDF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73797F3D170B3D9200D1CDDF /* CopySelector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CopySelector-Prefix.pch"; sourceTree = "<group>"; };
-		73797F3F170B3D9200D1CDDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		73797F41170B3D9200D1CDDF /* CSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSAppDelegate.h; sourceTree = "<group>"; };
-		73797F42170B3D9200D1CDDF /* CSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSAppDelegate.m; sourceTree = "<group>"; };
-		73797F45170B3D9200D1CDDF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		73797F4C170B3DB200D1CDDF /* AKMethodNameExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMethodNameExtractor.h; sourceTree = "<group>"; };
 		73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKMethodNameExtractor.m; sourceTree = "<group>"; };
 		73797F4E170B3DB200D1CDDF /* CSServicesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSServicesProvider.h; sourceTree = "<group>"; };
@@ -64,7 +57,7 @@
 		73797F2C170B3D9200D1CDDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				73797F2B170B3D9200D1CDDF /* CopySelector.app */,
+				73797F2B170B3D9200D1CDDF /* CopySelector.service */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +88,6 @@
 				73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */,
 				73797F4E170B3DB200D1CDDF /* CSServicesProvider.h */,
 				73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */,
-				73797F41170B3D9200D1CDDF /* CSAppDelegate.h */,
-				73797F42170B3D9200D1CDDF /* CSAppDelegate.m */,
-				73797F44170B3D9200D1CDDF /* MainMenu.xib */,
 				73797F36170B3D9200D1CDDF /* Supporting Files */,
 			);
 			path = CopySelector;
@@ -110,7 +100,6 @@
 				73797F38170B3D9200D1CDDF /* InfoPlist.strings */,
 				73797F3B170B3D9200D1CDDF /* main.m */,
 				73797F3D170B3D9200D1CDDF /* CopySelector-Prefix.pch */,
-				73797F3E170B3D9200D1CDDF /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -132,7 +121,7 @@
 			);
 			name = CopySelector;
 			productName = CopySelector;
-			productReference = 73797F2B170B3D9200D1CDDF /* CopySelector.app */;
+			productReference = 73797F2B170B3D9200D1CDDF /* CopySelector.service */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -168,8 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73797F3A170B3D9200D1CDDF /* InfoPlist.strings in Resources */,
-				73797F40170B3D9200D1CDDF /* Credits.rtf in Resources */,
-				73797F46170B3D9200D1CDDF /* MainMenu.xib in Resources */,
 				73797F53170B412900D1CDDF /* README.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,7 +169,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73797F3C170B3D9200D1CDDF /* main.m in Sources */,
-				73797F43170B3D9200D1CDDF /* CSAppDelegate.m in Sources */,
 				73797F50170B3DB200D1CDDF /* AKMethodNameExtractor.m in Sources */,
 				73797F51170B3DB200D1CDDF /* CSServicesProvider.m in Sources */,
 			);
@@ -197,22 +183,6 @@
 				73797F39170B3D9200D1CDDF /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		73797F3E170B3D9200D1CDDF /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73797F3F170B3D9200D1CDDF /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		73797F44170B3D9200D1CDDF /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73797F45170B3D9200D1CDDF /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -277,7 +247,7 @@
 				GCC_PREFIX_HEADER = "CopySelector/CopySelector-Prefix.pch";
 				INFOPLIST_FILE = "CopySelector/CopySelector-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				WRAPPER_EXTENSION = service;
 			};
 			name = Debug;
 		};
@@ -289,7 +259,7 @@
 				GCC_PREFIX_HEADER = "CopySelector/CopySelector-Prefix.pch";
 				INFOPLIST_FILE = "CopySelector/CopySelector-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				WRAPPER_EXTENSION = service;
 			};
 			name = Release;
 		};
@@ -312,6 +282,7 @@
 				73797F4B170B3D9200D1CDDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

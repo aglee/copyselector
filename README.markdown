@@ -1,20 +1,65 @@
 # CopySelector
 
-A teeny app that does nothing but provide a "Copy with Selector Awareness" system service.
+This service tries to detect an Objective-C method name in your selected text. If it succeeds, it puts the selector into the system paste buffer. Otherwise, it beeps.
 
-"Copy with Selector Awareness" is a service that you can invoke from any application where you have selected some text. It tries to find a method name in that text, and if successful it puts the selector in the system paste buffer. If a method name is not detected, a regular Copy is performed.
+It's assumed that you've selected either a selector, a method declaration, or a method invocation. The algorithm tries to be forgiving and not require you to be 100% precise about where you start and end the text selection.
 
-For example, in Xcode if you have [self flyToX:100 y:200 z:300], you can double-click one of the square brackets to select the whole expression, then invoke this service. CopySelector will search for the method name flyToX:y:z:.
+## Installation
 
-If you happen to be in BBEdit, where double-clicking a bracket selects the text inside the brackets, the service should still work.
+To install this service, copy CopySelector.service into ~/Library/Services. If you use the service often, you'll want to assign a hotkey in System Preferences > Keyboard > Keyboard Shortcuts > Services.
 
-If there is leading whitespace or a cast, or newlines or comments anywhere, or any blocks or any of the new object literals, it should still work, so if you have lines like this you can select them all and then invoke the service:
+## Examples
 
-    (void)[self flyToX:100  // cast to void to discard the return value
-                     y:200
-                     z:900 /*300*/];
+Here are examples of text fragments that you can select that the algorithm can handle. You can probably figure it out for yourself without all these explicit examples, but they're helpful to me for testing purposes.
 
-Here's another example; CopySelector will extract "beginSheetModalForWindow:completionHandler:":
+Plain selector:
+
+    flyToX:y:z:
+
+Method declaration (class methods work too):
+
+    - (id)browser:(NSBrowser *)browser child:(NSInteger)index ofItem:(id)item;
+
+You don't have to select precisely all the way to the end:
+
+    - (id)browser:(NSBrowser *)browser child:(NSInteger)index ofItem:(i
+
+Internal whitespace and comments don't matter:
+
+    - (id)browser:(NSBrowser *)browser  // comment
+            child:(NSInteger)index  /* comment */
+           ofItem:(id)item;
+
+Method invocation with arguments:
+
+    [self flyToX:100 y:200 z:300];
+
+You can be sloppy and select past the end:
+
+    [self flyToX:100 y:200 z:300] ]; }
+
+The brackets themselves don't have to be included in the selection:
+
+    self flyToX:100 y:200 z:300
+
+(This means that if you are in BBEdit, where double-clicking a bracket selects the text *inside* the brackets, the service still works.)
+
+When messages are nested or contain subexpressions, the top-level message is detected (in this case, flyToX:y:z:):
+
+    [[self pilot] flyToX:100 y:(150 + 50) z:[self zCoord]];
+
+Typecasts are ignored:
+
+    (void)[(Aviator *)self flyToX:100 y:200 z:300];
+
+Object literals and struct literals are supported:
+
+    [self useNumber:@(2 + 2)
+              array:@[@"four"]
+               dict:@{ @"count": @4 }
+               rect:(NSRect){ {0, 0}, { 2, 2 } }];
+
+Method arguments can be blocks. The service detects beginSheetModalForWindow:completionHandler: if you select the following lines:
 
     [op beginSheetModalForWindow:[self window]
                completionHandler:^(NSInteger result) {
@@ -31,27 +76,40 @@ Here's another example; CopySelector will extract "beginSheetModalForWindow:comp
                    }
                }];
 
-Note that CopySelector doesn't work if the selected text begins with an assignment. For example, it won't detect the selector if you select this whole line:
+## Known issues
+
+### No-argument method invocation
+
+Ironically, the algorithm doesn't recognize the simplest method invocation:
+
+    [myButton sizeToFit];
+
+I'll fix this when I get a chance.
+
+### Leading comments
+
+Although internal or trailing comments are properly ignored, leading comments are not:
+
+    // Don't include this comment in your text selection.
+    [self flyToX:100 y:200 z:300];
+
+I think I can fix this -- again, when I get a chance.
+
+### Left-hand sides
+
+The algorithm doesn't work if you select this whole line:
 
     BOOL didFly = [self flyToX:100 y:200 z:300];
 
-The workaround is to select just the message-send -- the part after the "=" -- by double-clicking one of the square brackets.
+I probably won't fix this, as it looks like it would be hairy to reliably parse all possibilities for the left-hand side. The workaround is to begin your selection after the equals sign.
 
-Another intended use is when you're looking at code that declares a method and you want to copy that method name. For example, you can select these lines and CopySelector will detect "browser:child:ofItem:" (the "-(id)" will be ignored):
+## See also
 
-    - (id)browser:(NSBrowser *)browser
-            child:(NSInteger)index
-           ofItem:(id)item
+* I've had this idea for a while but was only prompted to action when I saw [this tweet](http://twitter.com/mikeabdullah/status/319036829401772032) from Mike Abdullah. Please file a dupe of [Mike's Radar](http://www.openradar.me/13555307) requesting this feature in Xcode.
 
-This service assumes well-formed Objective-C. You might get unexpected results otherwise. If there are nested messages, it uses the top-level one. The algorithm mainly looks at punctuation -- delimiters like brackets and a few other characters that need special treatment. The basic idea is that it ignores anything between delimiters, like (blah blah blah), [blah blah blah], or {blah blah blah}. This is why you can often be a bit imprecise in the text you select and it will still work.
+* Kevin Callahan's Accessorizer has a [copy-selector feature](http://www.kevincallahan.org/software/accessorizerHelp/Selectors.html), and even has an option to wrap the selector in "@selector()", which is a clever idea. I use Accessorizer all the time, but it has so many features it was easy to overlook this one. One difference CopySelector has is the ability to parse selectors from method invocations (as opposed to declarations or definitions).
 
-The implementation of this service uses the AKMethodExtractor class ([.h file](https://github.com/aglee/appkido/blob/master/src/GlobalClasses/AKMethodNameExtractor.h), [.m file](https://github.com/aglee/appkido/blob/master/src/GlobalClasses/AKMethodNameExtractor.m)) from the [AppKiDo](http://appkido.com) project. AppKiDo uses it to provide a similar service, except it performs a search on the selector instead of putting it in the paste buffer. You're welcome to use this class in your own code -- for example, if you want to implement your own CopySelector service.
-
-**UPDATE:** It turns out Kevin Callahan's Accessorizer already has a [copy-selector feature](http://www.kevincallahan.org/software/accessorizerHelp/Selectors.html), and even has an option to wrap the selector in "@selector()", which is a clever idea. I use Accessorizer all the time, but it has so many features it was easy to overlook this one. One difference CopySelector has is the ability to parse selectors from method invocations (as opposed to declarations or definitions).
-
-## Credits
-
-I've had this idea for a while but was only prompted to action when I saw [this tweet](http://twitter.com/mikeabdullah/status/319036829401772032) from Mike Abdullah. Please file a dupe of [Mike's Radar](http://www.openradar.me/13555307) requesting this feature in Xcode.
+* Check out this open-source [Xcode plugin](https://github.com/omz/Dash-Plugin-for-Xcode) that integrates Xcode's inline documentation viewer with [Dash](http://kapeli.com/). It could probably be modified to do what CopySelector does, and you wouldn't have to select the whole method name; you'd only have to have the cursor in it.
 
 ## Ideas
 
@@ -70,10 +128,6 @@ and generate
 And maybe a service to do the opposite as well.
 
 Of course, even nicer would be if all the above operations were built into Xcode -- although CopySelector could still be useful when you want to copy a selector that's not in Xcode, like in an email.
-
-### No app
-
-When you invoke "Copy with Selector Awareness", the app becomes active and immediately hides itself. I couldn't figure out how to make it not become active; I suspect this is not possible. I could avoid the app flicker by building a standalone .service bundle and not having a .app at all.
 
 ### Accessorizer's "wrapping" feature
 

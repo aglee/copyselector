@@ -22,12 +22,12 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSBackgroundOnly</key>
+	<true/>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2013 Andy Lee. All rights reserved.</string>
-	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSServices</key>
@@ -36,14 +36,16 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Copy with Selector Awareness</string>
+				<string>Copy Selector</string>
 			</dict>
 			<key>NSMessage</key>
-			<string>copyWithSelectorAwareness</string>
+			<string>copySelector</string>
 			<key>NSPortName</key>
 			<string>CopySelector</string>
 			<key>NSRequiredContext</key>
 			<dict/>
+			<key>NSSendFileTypes</key>
+			<array/>
 			<key>NSSendTypes</key>
 			<array>
 				<string>NSStringPboardType</string>

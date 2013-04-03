@@ -15,11 +15,10 @@
 #pragma mark -
 #pragma mark Methods listed in the NSServices section of Info.plist
 
-// "copyWithSelectorAwareness" is what appears in Info.plist. The rest of the
-// method name is implied.
-- (void)copyWithSelectorAwareness:(NSPasteboard *)pboard
-                         userData:(NSString *)userData
-                            error:(NSString **)errorMessagePtr
+// "copySelector" is what appears in Info.plist. The rest of the method name is implied.
+- (void)copySelector:(NSPasteboard *)pboard
+            userData:(NSString *)userData
+               error:(NSString **)errorMessagePtr
 {
     // Make sure the pasteboard contains a string.
     if (![pboard canReadObjectForClasses:@[[NSString class]] options:@{}])
@@ -28,24 +27,21 @@
         return;
     }
 
-    // Get the string from the pasteboard.
+    // Try to parse a selector from the pasteboard contents.
     NSString *pasteboardString = [pboard stringForType:NSPasteboardTypeString];
     NSString *methodName = [AKMethodNameExtractor extractMethodNameFromString:pasteboardString];
 
-    if (methodName)
+    if (methodName == nil)
     {
-        pasteboardString = methodName;
+        NSBeep();
+        return;
     }
 
-    // Stuff the extracted method name, or the original string if none, into the
-    // system-wide copy/paste pasteboard.
+    // Stuff the extracted method name into the system paste buffer.
     NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
     
     [generalPasteboard declareTypes:@[NSStringPboardType] owner:nil];
-    [generalPasteboard setString:pasteboardString forType:NSStringPboardType];
-
-    // Hide the app.
-    [NSApp performSelector:@selector(hide:) withObject:nil afterDelay:0];
+    [generalPasteboard setString:methodName forType:NSStringPboardType];
 }
 
 @end
