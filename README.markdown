@@ -24,11 +24,16 @@ You don't have to select precisely all the way to the end:
 
     - (id)browser:(NSBrowser *)browser child:(NSInteger)index ofItem:(i
 
-Internal whitespace and comments don't matter:
+Whitespace and comments are ignored:
 
-    - (id)browser:(NSBrowser *)browser  // comment
-            child:(NSInteger)index  /* comment */
+    // Detects browser:child:ofItem:.
+    - (id)browser:(NSBrowser *) browser  // comment
+            child: (NSInteger)index  /* comment */
            ofItem:(id)item;
+
+No-argument method invocation:
+
+    [myButton sizeToFit];
 
 Method invocation with arguments:
 
@@ -78,26 +83,7 @@ Method arguments can be blocks. The service detects beginSheetModalForWindow:com
 
 ## Known issues
 
-### No-argument method invocation
-
-Ironically, the algorithm doesn't recognize the simplest method invocation:
-
-    [myButton sizeToFit];
-
-I'll fix this when I get a chance.
-
-### Leading comments
-
-Although internal or trailing comments are properly ignored, leading comments are not:
-
-    // Don't include this comment in your text selection.
-    [self flyToX:100 y:200 z:300];
-
-I think I can fix this -- again, when I get a chance.
-
-### Left-hand sides
-
-The algorithm doesn't work if you select this whole line:
+The algorithm can't deal with assignment. For example, it doesn't work if you select this whole line:
 
     BOOL didFly = [self flyToX:100 y:200 z:300];
 
