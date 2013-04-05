@@ -59,7 +59,7 @@ Typecasts are ignored:
 
     (void)[(Aviator *)self flyToX:100 y:200 z:300];
 
-Object literals and struct literals are supported:
+Object literals and struct literals are recognized and duly ignored:
 
     [self useNumber:@(2 + 2)
               array:@[@"four"]
