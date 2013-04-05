@@ -6,7 +6,9 @@ It's assumed that you've selected either a selector, a method declaration, or a 
 
 ## Installation
 
-To install this service, copy CopySelector.service into ~/Library/Services. If you use the service often, you'll want to assign a hotkey in System Preferences > Keyboard > Keyboard Shortcuts > Services.
+To install this service, copy CopySelector.service into ~/Library/Services. If you use the service often, you'll want to assign a hotkey in System Preferences > Keyboard > Keyboard Shortcuts > Services. You may need to relaunch applications to get them to see the service.
+
+To uninstall, delete CopySelector.service from ~/Library/Services. You might have to first kill the service's process before you can do this. You can use Activity Monitor or the kill command to kill the process.
 
 ## Examples
 
