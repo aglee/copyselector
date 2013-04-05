@@ -66,7 +66,7 @@ Object literals and struct literals are recognized and duly ignored:
                dict:@{ @"count": @4 }
                rect:(NSRect){ {0, 0}, { 2, 2 } }];
 
-Method arguments can be blocks. The service detects beginSheetModalForWindow:completionHandler: if you select the following lines:
+Method arguments can be blocks (and are again duly ignored). The service detects beginSheetModalForWindow:completionHandler: if you select the following lines:
 
     [op beginSheetModalForWindow:[self window]
                completionHandler:^(NSInteger result) {
