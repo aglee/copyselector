@@ -1,5 +1,7 @@
 # CopySelector
 
+_[UPDATE: I dusted off this code and was pleased to find it still works. But it turns out Xcode 13 now has this feature under the Edit menu (**Edit > Copy > Copy Symbol Name** and **Edit > Copy > Copy Qualified Symbol Name**). And presumably it works with Swift as well as Objective-C.]_
+
 This service tries to detect an Objective-C method name in your selected text. If it succeeds, it puts the selector into the system paste buffer. Otherwise, it beeps.
 
 It's assumed that you've selected either a selector, a method declaration, or a method invocation. The algorithm tries to be forgiving and not require you to be 100% precise about where you start and end the text selection, as long as it includes all of the method name. The main exception is that the algorithm can't parse top-level assignment -- see the "Known Issues" section.
