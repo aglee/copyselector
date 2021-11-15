@@ -35,8 +35,6 @@
 - (void)dealloc
 {
     free(_buffer);
-
-    [super dealloc];
 }
 
 #pragma mark -
@@ -44,7 +42,7 @@
 
 + (NSString *)extractMethodNameFromString:(NSString *)string
 {
-    AKMethodNameExtractor *methEx = [[[self alloc] initWithString:string] autorelease];
+    AKMethodNameExtractor *methEx = [[self alloc] initWithString:string];
 
     return [methEx extractMethodName];
 }
@@ -100,9 +98,9 @@
         }}
         char *elementEnd = _current;
 
-        NSString *element = [[[NSString alloc] initWithBytes:elementStart
-                                                      length:(elementEnd - elementStart)
-                                                    encoding:NSUTF8StringEncoding] autorelease];
+        NSString *element = [[NSString alloc] initWithBytes:elementStart
+													 length:(elementEnd - elementStart)
+			encoding:NSUTF8StringEncoding];
         if ([element hasSuffix:@":"])
         {
             // Assume element is one component of a multipart method name.

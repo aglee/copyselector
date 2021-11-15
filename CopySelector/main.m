@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	@autoreleasepool
     {
-        CSServicesProvider *service = [[[CSServicesProvider alloc] init] autorelease];
+        CSServicesProvider *service = [[CSServicesProvider alloc] init];
 
         NSRegisterServicesProvider(service, @"CopySelector");
 
