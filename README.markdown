@@ -85,11 +85,12 @@ Method arguments can be blocks (and are again duly ignored). The service detects
 
 ## Known issues
 
-The algorithm can't deal with assignment. For example, it doesn't work if you select this whole line:
+- **Assumes 8-bit characters.**
+- **Can't deal with assignment.** For example, it doesn't work if you select this whole line:
 
-    BOOL didFly = [self flyToX:100 y:200 z:300];
+		BOOL didFly = [self flyToX:100 y:200 z:300];
 
-I probably won't fix this, as it looks like it would be hairy to reliably parse all possibilities for the left-hand side. The workaround is to begin your selection after the equals sign.
+	I probably won't fix this, as it looks like it would be hairy to reliably parse all possibilities for the left-hand side. The workaround is to begin your selection after the equals sign.
 
 ## See also
 
