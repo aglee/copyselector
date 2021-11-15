@@ -12,7 +12,6 @@
 		73797F3C170B3D9200D1CDDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F3B170B3D9200D1CDDF /* main.m */; };
 		73797F50170B3DB200D1CDDF /* AKMethodNameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4D170B3DB200D1CDDF /* AKMethodNameExtractor.m */; };
 		73797F51170B3DB200D1CDDF /* CSServicesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 73797F4F170B3DB200D1CDDF /* CSServicesProvider.m */; };
-		73797F53170B412900D1CDDF /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 73797F52170B412900D1CDDF /* README.markdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73797F3A170B3D9200D1CDDF /* InfoPlist.strings in Resources */,
-				73797F53170B412900D1CDDF /* README.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,11 +2,19 @@
 
 This service tries to detect an Objective-C method name in your selected text. If it succeeds, it puts the selector into the system paste buffer. Otherwise, it beeps.
 
-It's assumed that you've selected either a selector, a method declaration, or a method invocation. The algorithm tries to be forgiving and not require you to be 100% precise about where you start and end the text selection.
+It's assumed that you've selected either a selector, a method declaration, or a method invocation. The algorithm tries to be forgiving and not require you to be 100% precise about where you start and end the text selection, as long as it includes all of the method name. The main exception is that the algorithm can't parse top-level assignment -- see the "Known Issues" section.
 
 ## Installation
 
-To install this service, copy CopySelector.service into ~/Library/Services. If you use the service often, you'll want to assign a hotkey in System Preferences > Keyboard > Keyboard Shortcuts > Services. You may need to relaunch applications to get them to see the service.
+To install this service, copy CopySelector.service into ~/Library/Services. You can assign a hotkey in System Preferences > Keyboard > Keyboard Shortcuts > Services.
+
+If you're not seeing the service, try running this command (thanks to [Dirk Stoop](http://www.notesfromandy.com/2013/04/05/writing-a-service-bundle/#comment-649226) for this tip):
+
+```bash
+/System/Library/CoreServices/pbs -update
+```
+
+If that doesn't work, you may need to relaunch applications to get them to see the service.
 
 To uninstall, delete CopySelector.service from ~/Library/Services. You might have to first kill the service's process before you can do this. You can use Activity Monitor or the kill command to kill the process.
 
@@ -85,12 +93,17 @@ Method arguments can be blocks (and are again duly ignored). The service detects
 
 ## Known issues
 
-- **Assumes 8-bit characters.**
-- **Can't deal with assignment.** For example, it doesn't work if you select this whole line:
+* **Assumes 8-bit characters.**
+
+* **Can't deal with top-level assignment.** For example, it doesn't work if you select this whole line:
 
 		BOOL didFly = [self flyToX:100 y:200 z:300];
 
 	I probably won't fix this, as it looks like it would be hairy to reliably parse all possibilities for the left-hand side. The workaround is to begin your selection after the equals sign.
+
+	Note that assignment inside delimiters is okay, because the whole delimited expression is ignored. So selecting this works:
+
+		[self flyToX:(q = 100) y:200 z:300 completion:^{ w = -1; }];
 
 ## See also
 
