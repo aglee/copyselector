@@ -11,14 +11,13 @@
 
 int main(int argc, char *argv[])
 {
-	@autoreleasepool
-    {
-        CSServicesProvider *service = [[CSServicesProvider alloc] init];
-
-        NSRegisterServicesProvider(service, @"CopySelector");
-
-        [[NSRunLoop currentRunLoop] run];
+	@autoreleasepool {
+		CSServicesProvider *service = [[CSServicesProvider alloc] init];
+		
+		NSRegisterServicesProvider(service, @"CopySelector");
+		
+		[[NSRunLoop currentRunLoop] run];
 	}
-
+	
 	return 0;
 }

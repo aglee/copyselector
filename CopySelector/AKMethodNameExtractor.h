@@ -21,19 +21,12 @@
  * See comments in the .m for implementation details.
  */
 @interface AKMethodNameExtractor : NSObject
-{
-@private
-    char *_buffer;  // Points to a buffer containing the zero-terminated UTF8 string we want to parse.
-    char *_current;  // Points to the character within _buffer that we're currently parsing.
-}
 
-#pragma mark -
-#pragma mark Init/awake/dealloc
+#pragma mark - Init/awake/dealloc
 
 - (id)initWithString:(NSString *)string;
 
-#pragma mark -
-#pragma mark Parsing
+#pragma mark - Parsing
 
 + (NSString *)extractMethodNameFromString:(NSString *)string;
 - (NSString *)extractMethodName;

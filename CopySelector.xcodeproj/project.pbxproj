@@ -53,6 +53,7 @@
 				73797F2C170B3D9200D1CDDF /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		73797F2C170B3D9200D1CDDF /* Products */ = {
 			isa = PBXGroup;
